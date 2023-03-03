@@ -1,0 +1,9 @@
+
+<div class="story-page">
+    <div class="story-list">
+        <mat-card *ngFor="let story of autoSelectedStories" class="card">
+            <mat-card-title><h2 style="color: red;">{{ story.name }}</h2></mat-card-title>
+            <mat-card-content><h2 style="color:white;">{{ story.point }}</h2></mat-card-content>
+        </mat-card>
+    </div>
+</div>

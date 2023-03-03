@@ -1,0 +1,33 @@
+<div class="login-page">
+
+    <mat-card class="mat-elevation-z12">
+        <mat-card-title style="text-align:center; margin-top: 2rem;">
+            <h2 style="color: bisque;" >Add Story Form</h2>
+        </mat-card-title>
+
+        <mat-card-content>
+            <form #storyForm="ngForm" (ngSubmit)="addStoryClicked(storyForm)" >
+                <mat-form-field>
+                    <input matInput placeholder="Story Name" required type="text" minlength="4" name="name"
+                     [(ngModel)]="story.name"   >
+                    <mat-error *ngIf="storyForm.controls?.['name']?.touched && storyForm.controls?.['name']?.invalid">
+                        Min 4 characters long Story name is required.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Story Point" required type="number"  name="point" [(ngModel)]="story.point"
+                        >
+                        <mat-error *ngIf="storyForm.controls?.['point']?.touched">
+                            Story must have a point
+                        </mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" class="login-button"
+                   [disabled]="!storyForm.valid">
+                    Add story
+                </button>
+            </form>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

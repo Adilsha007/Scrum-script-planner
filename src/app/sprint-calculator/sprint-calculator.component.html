@@ -1,0 +1,31 @@
+<div class="story-page">
+
+    <mat-card class="mat-elevation-z12">
+        <mat-card-title style="text-align:center; margin-top: 2rem;">
+            <h2 style="color: bisque;" >Sprint Calculator</h2>
+        </mat-card-title>
+
+        <mat-card-content>
+            <form #storyCalculatorForm="ngForm" (ngSubmit)="storyCalculatorClicked(storyCalculatorForm)">
+                <mat-form-field>
+                    <input matInput placeholder="Sprint Point" required type="number"  name="sprintpoint"
+                        [(ngModel)]="sprintpoint">
+                    <mat-error *ngIf="storyCalculatorForm.controls?.['sprintpoint']?.touched && storyCalculatorForm.controls?.['sprintpoint']?.invalid">
+                        Sprint Point is required
+                    </mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" class="login-button"  [disabled]="!storyCalculatorForm.valid">
+                    Auto Select Stories
+                </button>
+            </form>
+            <button mat-raised-button color="primary" type="submit" class="login-button" (click)="clearStoriesClicked()" >
+                Clear Stories
+            </button>
+            <button mat-raised-button color="primary" type="submit" class="login-button" (click)="clearSprintClicked()">
+                Clear Sprits
+            </button>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>
